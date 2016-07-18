@@ -1,26 +1,26 @@
 {
-  "name": "gradle-to-js",
-  "version": "0.1.0",
-  "description": "A quick & dirty gradle build file converter to javascript object",
+  "name": "gradlejs",
+  "version": "1.0.0",
+  "description": "A quick & dirty gradle build file converter to javascript object  & Objject to file",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ninetwozero/gradle-to-js.git"
+    "url": "git+https://github.com/safirsh/gradle-to-js.git"
   },
   "keywords": [
     "gradle",
     "javascript",
     "parsing"
   ],
-  "author": "Karl Lindmark",
+  "author": "Safiresh",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ninetwozero/gradle-to-js/issues"
+    "url": "https://github.com/safiresh/gradle-to-js/issues"
   },
-  "homepage": "https://github.com/ninetwozero/gradle-to-js#readme",
+  "homepage": "https://github.com/safiresh/gradle-to-js#readme",
   "devDependencies": {
     "chai": "3.5.0",
     "mocha": "2.4.5",
@@ -28,6 +28,7 @@
     "phantomjs": "1.9.20"
   },
   "dependencies": {
-    "bluebird": "3.3.5"
+    "bluebird": "3.3.5",
+    "underscore": "1.8.3"
   }
 }

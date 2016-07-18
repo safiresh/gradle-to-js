@@ -2,63 +2,33 @@
 
 [![Build Status](https://travis-ci.org/ninetwozero/gradle-to-js.svg?branch=master)](https://travis-ci.org/ninetwozero/gradle-to-js)
 
-# What's this `gradle-to-js` thing?
+# What's this `gradlejs` thing?
 gradle-to-js is a quick & dirty Gradle build file to JavaScript object parser. It is quick & dirty in the sense that it doesn't give you an exact replica of whatever the build file represents during runtime, as evaluations and similar bits are (currently) too much of a hassle to accurately represent while parsing.
-
+JavaScript object to Gradle file make
 # Installation
 Simply run the following command to include it into your project:
 ```
-npm install gradle-to-js --save
+npm install gradlejs --save
 ```
 # Usage
-## As a module
-Using `gradle-to-js` as a module, you can parse both strings and files as seen below.
 
-### Files
+### Sample build  file
 ```
-var g2js = import('gradle-to-js');
-g2js.parseFile('path/to/buildfile').then(function(representation) {
-  console.log(representation);
+var fs = require('fs');
+var gjs = require('gradle-to-js');
+
+g2js.parseFile('./build.gradle').then(function (representation) {
+    representation.android.defaultConfig.versionName = "'1.0.2'"; // value String means we need  put single quotes :(
+    fs.writeFile('./build.gradle', gjs.makeGradleText(representation), function (e, r) {
+        console.log(e, r);
+    })
+
 });
-```
 
-### Strings
-```
-var g2js = import('gradle-to-js');
-g2js.parseText('key "value"').then(function(representation) {
-  console.log(representation);
-});
-```
-
-The promise will eventually resolve an object matching the build file structure and values.
-
-### Using the CLI
-You can also use the module directly from the CLI, and get a json representation out of it. Nifty ey? Currently only supporting files from this direction.
-
-```
-$ ./index.js test/sample-data/small.build.gradle
-{
-  "testblock": {
-    "key1": "value1",
-    "key2": "value2",
-    "nestedKey": {
-      "key3": "value3",
-      "key4": "value4",
-      "key5": {
-        "key6": "value6"
-      }
-    }
-  },
-  "testblock2": {
-    "key1": "value1",
-    "key2": "value2"
-  },
-  "testblock3": "not really"
-}
-```
+**Special thanks to [Karl Lindmark](https://github.com/karllindmark)**
 
 # Author
-[Karl Lindmark](https://www.github.com/karllindmark)
+[Safiresh](https://www.github.com/safiresh)
 
 # License
 Apache 2.0
