@@ -24,7 +24,7 @@ g2js.parseFile('./build.gradle').then(function (representation) {
     })
 
 });
-
+```
 **Special thanks to [Karl Lindmark](https://github.com/karllindmark)**
 
 # Author
