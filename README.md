@@ -1,4 +1,4 @@
-# gradle-to-js
+# gradlejs
 
 [![Build Status](https://travis-ci.org/ninetwozero/gradle-to-js.svg?branch=master)](https://travis-ci.org/ninetwozero/gradle-to-js)
 
@@ -15,7 +15,7 @@ npm install gradlejs --save
 ### Sample build  file
 ```
 var fs = require('fs');
-var gjs = require('gradle-to-js');
+var gjs = require('gradlejs');
 
 g2js.parseFile('./build.gradle').then(function (representation) {
     representation.android.defaultConfig.versionName = "'1.0.2'"; // value String means we need  put single quotes :(
